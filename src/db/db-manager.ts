@@ -2,7 +2,7 @@ import 'dotenv/config';
 import User from './user-schema';
 import connectDB from './connect';
 import {UserFormData} from './user-validation';
-import {hashPasswordMiddleware} from '@/lib/hash-password';
+import {hashPasswordMiddleware} from '@/lib/helper-func';
 
 class UserService {
   private readonly dbUrl = process.env.CONNECTION_STRING ?? '';
