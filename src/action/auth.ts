@@ -13,15 +13,15 @@ import {cookies} from 'next/headers';
 import {ZodError} from 'zod';
 
 const userService = new UserService();
+
 /**
- * Asynchronously registers a new user with the provided form data.
+ * Registers a new user with the provided form data.
  *
  * @async
  * @function
- * @param {FormState} prevState - The previous state of the form.
- * @param {FormData} formData - The form data containing user information.
- * @returns {Promise<{ status: number, message: string, error?: { validationErrors?: { [path: string]: string[] } } }>}
- *   A promise that resolves to an object containing the registration status, message, and optional validation errors.
+ * @param {UserFormData} userData - The form data containing user information.
+ * @returns {Promise<{ status: number, message: string, error?: { [path: string]: string[] } }>}
+ *   A promise that resolves to an object containing the registration status, message, and optional validation errors or reject with error if any.
  */
 export const register = async (userData: UserFormData) => {
   try {
@@ -68,14 +68,13 @@ export const register = async (userData: UserFormData) => {
 };
 
 /**
- * Asynchronously attempts to log in a user using the provided form data.
+ * Authenticates a user with the provided login data.
  *
  * @async
  * @function
- * @param {FormState} prevState - The previous state of the form.
- * @param {FormData} formData - The form data containing user login information.
- * @returns {Promise<FormState>} A promise that resolves to an object containing the login status and message.
- *   The status can be one of StatusCodes.OK, StatusCodes.BAD_REQUEST, StatusCodes.UNAUTHORIZED, or StatusCodes.INTERNAL_SERVER_ERROR.
+ * @param {PartialUsersFormData} userData - The partial form data containing user email and password for login.
+ * @returns {Promise<{ status: number, message: string }>}
+ *   A promise that resolves to an object containing the login status and message or rejects with error, if occurred.
  */
 export const login = async (userData: PartialUsersFormData) => {
   try {
