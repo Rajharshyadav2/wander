@@ -13,8 +13,8 @@ MongoDB Atlas account
 ## Installation
 
 1. Clone the repository:
-   `git clone https://github.com/your-username/wander-project.git`
-   cd wander-project
+   `git clone git@github.com:Rajharsh2/wander.git`
+   cd wander
 2. Install dependencies:
    `npm install`
 
