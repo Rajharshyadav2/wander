@@ -18,8 +18,6 @@ const LoginUser = () => {
 
     const response = await login(sanitizedData);
 
-    console.log(response);
-
     if (response?.status === StatusCodes.OK) {
       toast.success('Logged in Successfully');
       redirect('/');
